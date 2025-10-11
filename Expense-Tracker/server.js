@@ -155,6 +155,28 @@ switch (command) {
         break;
     }
 
+    case "export":{
+        const expenses = readExpense();
+
+        if(expenses.length === 0){
+            console.log("No expenses to export");
+            break;
+        }
+
+        const csvHeader = "ID,Date,Description,Amount\n";
+        const csvRows = expenses.map(t =>
+            `${t.id},${t.date},"${t.description}",${t.amount}`
+        );
+
+        const csvData = csvHeader + csvRows.join("\n");
+
+        const csvPath = path.join(__dirname,"expenses.csv");
+        fs.writeFileSync(csvPath,csvData);
+
+        console.log("Expenses exported successfully");
+        break;
+    }
+
     default:
         console.log(`
             Available commands:
@@ -162,5 +184,7 @@ switch (command) {
             list
             delete --id <num>
             summary
+            summary --month <month>
+            export
      `);
 }
