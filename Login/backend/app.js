@@ -13,5 +13,8 @@ app.use(express.urlencoded({extended: false}));
 // connectToDb();
 
 app.use("/",authRoutes);
+app.use("/",(req,res) => {
+    console.log("Home");
+})
 
 module.exports = app;

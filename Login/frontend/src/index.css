@@ -1,0 +1,15 @@
+
+:root {
+  --bs-primary: rgb(20, 27, 36);
+  --bs-primary-rgb: 20, 27, 36;
+  --bs-link-color: rgb(20, 27, 36);
+  --bs-link-hover-color: rgba(20, 27, 36, 0.85);
+}
+
+.bg-primary,
+.navbar.bg-primary,
+.btn-primary {
+  background-color: rgb(20, 27, 36) !important;
+  border-color: rgb(20, 27, 36) !important;
+}
+
